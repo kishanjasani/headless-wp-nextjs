@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import client from '../src/apollo/client';
+import Layout from '../src/components/layout';
 import { GET_MENUS } from '../src/queries/get-menus';
 
-export default function Index({ menus }) {
+export default function Index({ data }) {
   return (
-    <div>
-     Hello World
-    </div>
+    <Layout data={ data }>
+
+    </Layout>
   )
 }
 
@@ -17,8 +18,10 @@ export async function getStaticProps( context ) {
 
   return {
     props: {
-      menus: {
-        headerMenus: data?.headerMenus?.edges ?? [],
+      data: {
+        menus: {
+          headerMenus: data?.headerMenus?.edges ?? [],
+        }
       }
     }, // Will be passed to the page component as props
     revalidate: 1
