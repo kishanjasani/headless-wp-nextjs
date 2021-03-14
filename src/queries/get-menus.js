@@ -1,22 +1,41 @@
 import { gql } from '@apollo/client';
 import MenuFragment from './fragments/menus';
 
-export const GET_MENUS = gql`
-  query GET_MENUS {
-    headerMenus: menuItems(where: {location: PRIMARY, parentId: "0"}) {
-      edges {
-        node {
-          ...MenuFragment
-          childItems {
-            edges {
-              node {
-                ...MenuFragment
-              }
+const HeaderFooter = `
+  headerMenus: menuItems(where: {location: PRIMARY, parentId: "0"}) {
+    edges {
+      node {
+        ...MenuFragment
+        childItems {
+          edges {
+            node {
+              ...MenuFragment
             }
           }
         }
       }
     }
+  }
+  header: getHeader {
+    favicon
+    siteLogoUrl
+    siteTagLine
+    siteTitle
+  }
+  footer: getFooter {
+    copyrightText
+    sidebarOne
+    sidebarTwo
+    socialLinks {
+      iconName
+      iconUrl
+    }
+  }
+`;
+
+export const GET_MENUS = gql`
+  query GET_MENUS {
+    ${ HeaderFooter }
   }
   ${MenuFragment}
 `;

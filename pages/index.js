@@ -19,9 +19,11 @@ export async function getStaticProps( context ) {
   return {
     props: {
       data: {
+        header: data?.header || [],
         menus: {
-          headerMenus: data?.headerMenus?.edges ?? [],
-        }
+          headerMenus: data?.headerMenus?.edges || [],
+        },
+        footer: data?.footer || [],
       }
     }, // Will be passed to the page component as props
     revalidate: 1

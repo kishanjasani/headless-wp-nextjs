@@ -1,10 +1,10 @@
 import Nav from "./nav";
 
-const Header = ({ headerMenu }) => {
+const Header = ({ header, headerMenu }) => {
     
     return(
         <header>
-            <Nav headerMenu={ headerMenu }/>
+            <Nav header={header} headerMenu={ headerMenu }/>
         </header>
     );
 }
