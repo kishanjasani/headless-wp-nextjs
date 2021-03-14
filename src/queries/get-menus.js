@@ -16,6 +16,13 @@ const HeaderFooter = `
       }
     }
   }
+  footerMenus: menuItems(where: {location: FOOTER, parentId: "0"}) {
+    edges {
+      node {
+        ...MenuFragment
+      }
+    }
+  }
   header: getHeader {
     favicon
     siteLogoUrl

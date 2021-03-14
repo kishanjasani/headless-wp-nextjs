@@ -22,6 +22,7 @@ export async function getStaticProps( context ) {
         header: data?.header || [],
         menus: {
           headerMenus: data?.headerMenus?.edges || [],
+          footerMenus: data?.footerMenus?.edges || [],
         },
         footer: data?.footer || [],
       }
