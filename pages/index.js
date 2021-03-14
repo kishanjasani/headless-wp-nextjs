@@ -6,7 +6,7 @@ import { GET_MENUS } from '../src/queries/get-menus';
 export default function Index({ data }) {
   return (
     <Layout data={ data }>
-
+      Content
     </Layout>
   )
 }

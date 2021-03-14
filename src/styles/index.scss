@@ -1,3 +1,44 @@
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
+
+.postCard {
+    position: relative;
+    min-height: 380px;
+    cursor: pointer;
+
+    .image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: absolute; 
+        bottom: 0; 
+        background: #1D1D1D;
+        color: #FFFFFF; 
+        width: 100%;
+        transition: .3s ease;
+        font-size: 24px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &:hover .overlay {
+        background: #242F40;
+    }
+
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1.5rem;
+}
+ .container {
+    max-width: 1196px;
+    margin: 0 auto;
+ }
