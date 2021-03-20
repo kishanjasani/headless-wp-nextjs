@@ -39,7 +39,7 @@ const Footer = ({ footer, footerMenus }) => {
                 <div className=" px-1 w-full overflow-hidden xl:w-1/2">
                     { footer?.copyrightText ? sanitize( footer.copyrightText ) : 'Kishan Jasani 2021' }  
                 </div>
-                <div class=" px-1 w-full overflow-hidden xl:w-1/2 flex justify-end">
+                <div className=" px-1 w-full overflow-hidden xl:w-1/2 flex justify-end">
                     { ! isEmpty( footer?.socialLinks ) && isArray( footer?.socialLinks ) ? (
                         <ul>
                             { footer?.socialLinks.map( socialLink  => (
