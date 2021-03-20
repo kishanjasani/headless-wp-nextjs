@@ -1,5 +1,6 @@
 import { isEmpty, isArray } from 'lodash';
 import Link from 'next/link';
+import { getIconComponentByName } from '../../../utils/icons-map';
 import { sanitize } from '../../../utils/miscellaneous';
 
 const Footer = ({ footer, footerMenus }) => {
@@ -34,12 +35,20 @@ const Footer = ({ footer, footerMenus }) => {
                 </div>
 
             </div>
-            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-white pb-8 mt-8 flex flex-wrap overflow-hidden">
-                <div class=" px-1 w-full overflow-hidden xl:w-1/2">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-white pb-8 mt-8 flex flex-wrap overflow-hidden">
+                <div className=" px-1 w-full overflow-hidden xl:w-1/2">
                     { footer?.copyrightText ? sanitize( footer.copyrightText ) : 'Kishan Jasani 2021' }  
                 </div>
-                <div class=" px-1 w-full overflow-hidden xl:w-1/2">
-                    
+                <div class=" px-1 w-full overflow-hidden xl:w-1/2 flex justify-end">
+                    { ! isEmpty( footer?.socialLinks ) && isArray( footer?.socialLinks ) ? (
+                        <ul>
+                            { footer?.socialLinks.map( socialLink  => (
+                                <li key={socialLink?.iconName}>
+                                    <a href={socialLink?.iconUrl}>{getIconComponentByName( socialLink?.iconName )}</a>
+                                </li>
+                            ) ) }
+                        </ul>
+                    ) : null }
                 </div>
             </div>
         </footer>
